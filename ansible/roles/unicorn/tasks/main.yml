@@ -3,26 +3,28 @@
     name: unicorn
     state: latest
 
-- name: Create dir for pids, socket
+- name: Create dir for pids, socket, log
   file:
-    path: {{ item.path }}
+    path: "{{ item.path }}"
     state: directory
     mode: '0777'
   with_items:
     - { path: /var/tmp }
-    - { path: {{ path_to_app }}/tmp }
-    - { path: {{ path_to_app }}/tmp/pids }
+    - { path: /var/log }
+    - { path: "{{ path_to_app }}/tmp" }
+    - { path: "{{ path_to_app }}/tmp/pids" }
 
 - name: Use unicorn configuration
   template:
     src: 'unicorn.rb.j2'
     dest: '/opt/unicorn.rb'
-    owner: {{ ansible-user }}
-    group: {{ ansible-user }}
-    mode: 'u=rx,g=rx,o=r'
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 'u=rwx,g=rwx,o=r'
 
 - name: Run unicorn as daemon
-  command: 'unicorn -c /opt/unicorn.rb -D'
+  command: '/usr/local/bin/unicorn -c /opt/unicorn.rb -D'
+  become_user: "{{ ansible_user }}"
   register: result
 
 - debug: var=result
