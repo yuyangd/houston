@@ -1,3 +1,8 @@
 - name: Install epel-release
   yum: pkg=epel-release state=latest
   when: "ansible_os_family == 'RedHat'"
+
+- name: Put SELinux in permissive mode
+    selinux:
+      policy: targeted
+      state: permissive
