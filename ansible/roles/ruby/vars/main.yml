@@ -1,0 +1,15 @@
+---
+
+workspace: '/home/vagrant'
+
+ruby_install_bundler: true
+
+ruby_install_gems: ['sinatra', 'rack']
+
+ruby_install_gems_user: 'vagrant'
+
+ruby_install_from_source: false
+
+ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.gz
+
+ruby_version: 2.4.1

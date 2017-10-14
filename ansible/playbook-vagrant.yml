@@ -6,3 +6,7 @@
   gather_facts: yes
   roles:
     - { role: 'base' }
+    - { role: 'ruby',
+        ruby_version: 2.4.1,
+        ruby_install_from_source: true
+      }

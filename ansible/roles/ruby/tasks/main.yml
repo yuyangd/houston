@@ -1,0 +1,25 @@
+- name: Install ruby, rubygems, and development tools
+  yum: "name={{ item }} state=latest"
+  with_items:
+    - ruby
+    - ruby-devel
+    - rubygems
+    - '@development'
+  when:
+    - ruby_install_from_source == False
+
+- import_tasks: install-from-source.yml
+  when: ruby_install_from_source == True
+
+# Install Bundler and configured gems.
+- name: Install Bundler
+  gem: name=bundler state=present user_install=no
+  when: ruby_install_bundler
+
+- name: Install configured gems
+  gem:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  become_user: "{{ ruby_install_gems_user }}"
+  with_items: "{{ ruby_install_gems }}"
