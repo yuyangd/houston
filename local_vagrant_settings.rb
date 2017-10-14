@@ -16,7 +16,8 @@ module LocalVagrantSettings
   # forwarded ports and multiple VM's are required.
   FORWARDED_PORTS = {
    9292 => 8080,
-   4567 => 8085
+   4567 => 8085,
+   80 => 8000
   }
 
 end
