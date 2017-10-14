@@ -38,7 +38,14 @@ Goal: Automate the production like environment provisioning
 # Iteration 5
 Goal: Get a basic CloudFormation template to setup the environment
 1. Generate a template with 1 tier only
+2. some tests for the template
 
+# Iteration 6
+Goal: Bake an AMI to have some basic things installed
+
+
+# Iteration 7
+Goal:
 
 # Backlog
 Support centos and ubuntu
