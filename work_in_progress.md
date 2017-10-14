@@ -19,6 +19,7 @@ Goal: Get the app running in a vagrant box locally
   - install ruby gem bundler sinatra
 3. Manually run ruby app and test
 
+
 # Iteration 2
 Goal: Automate a base installation prior to get the app running
 1. Setup Ansible as provisioner
@@ -45,7 +46,16 @@ Goal: Bake an AMI to have some basic things installed
 
 
 # Iteration 7
-Goal:
+Goal: Enable ansible playbook to run on AWS
+      Have some system tests in place to run locally
+
+# Iteration 8
+Goal: use userdata to fetch the code
+      provision the server
+      deploy the app
+
+# Iteration 9
+Goal: Write README.md
 
 # Backlog
 Support centos and ubuntu
