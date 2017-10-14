@@ -30,7 +30,11 @@ Goal: Automate a base installation prior to get the app running
 # Iteration 3
 Goal: Manually run the app in a production like environment with nginx and unicorn
 boot up unicorn processes
-unicorn -c /home/vagrant/simple-sinatra-app/unicorn.rb -E development -D
+unicorn -c /opt/unicorn.rb -E development -D
+Selinux
+SELINUX=disabled
+setenforce 0
+getenforce
 
 
 # Iteration 4

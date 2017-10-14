@@ -1,0 +1,4 @@
+---
+path_to_app: "/home/vagrant/simple-sinatra-app"
+path_to_socket: "/var/tmp"
+ansible-user: "vagrant"

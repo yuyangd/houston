@@ -8,5 +8,8 @@
     - { role: 'base' }
     - { role: 'ruby',
         ruby_version: 2.4.1,
-        ruby_install_from_source: true
+        ruby_install_from_source: true,
+        ruby_install_gems: ['sinatra', 'rack']
       }
+    - { role: 'unicorn' }
+    - { role: 'proxy' }

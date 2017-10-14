@@ -1,0 +1,28 @@
+- name: Install unicorn
+  gem:
+    name: unicorn
+    state: latest
+
+- name: Create dir for pids, socket
+  file:
+    path: {{ item.path }}
+    state: directory
+    mode: '0777'
+  with_items:
+    - { path: /var/tmp }
+    - { path: {{ path_to_app }}/tmp }
+    - { path: {{ path_to_app }}/tmp/pids }
+
+- name: Use unicorn configuration
+  template:
+    src: 'unicorn.rb.j2'
+    dest: '/opt/unicorn.rb'
+    owner: {{ ansible-user }}
+    group: {{ ansible-user }}
+    mode: 'u=rx,g=rx,o=r'
+
+- name: Run unicorn as daemon
+  command: 'unicorn -c /opt/unicorn.rb -D'
+  register: result
+
+- debug: var=result
