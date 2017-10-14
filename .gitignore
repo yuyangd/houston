@@ -1,0 +1,34 @@
+.vagrant
+Gemfile.lock
+.sw*
+.DS_Store
+.cache
+*.pex
+*.rpm
+*.pyc
+__pycache__
+dist
+build
+wheelhouse
+docs/build
+docs/source/reference/services
+tests/cover
+tests/.coverage
+*.egg-info
+
+# Test state / virtualenvs
+.tox
+.coverage
+coverage.xml
+nosetests.xml
+
+# Common virtualenv names
+venv
+env2
+env3
+
+# IntelliJ / PyCharm IDE
+.idea/
+
+py.junit.unittests.xml
+py.junit.unittests_bin.xml
