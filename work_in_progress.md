@@ -32,6 +32,7 @@ Goal: Manually run the app in a production like environment with nginx and unico
 boot up unicorn processes
 unicorn -c /opt/unicorn.rb -E development -D
 Selinux
+sudo vi /etc/sysconfig/selinux
 SELINUX=disabled
 setenforce 0
 getenforce
@@ -66,3 +67,6 @@ Goal: Write README.md
 Not to run ansible as root
 Support centos and ubuntu
 Template to support 2 tiers
+File permissions
+Shorten time for installing ruby
+SElinux policy to allow socket share

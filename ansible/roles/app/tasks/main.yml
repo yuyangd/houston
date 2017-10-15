@@ -1,0 +1,19 @@
+- name: Create app path
+  file:
+    path: "{{ app_path }}"
+    state: directory
+    mode: 0755
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: Copy app to app directory
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+  with_items:
+    - { src: '{{ sync_app_path }}/config.ru', dest: '{{ app_path }}/config.ru' }
+    - { src: '{{ sync_app_path }}/Gemfile', dest: '{{ app_path }}/Gemfile' }
+    - { src: '{{ sync_app_path }}/helloworld.rb', dest: '{{ app_path }}/helloworld.rb' }

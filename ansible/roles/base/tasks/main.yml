@@ -3,6 +3,6 @@
   when: "ansible_os_family == 'RedHat'"
 
 - name: Put SELinux in permissive mode
-    selinux:
-      policy: targeted
-      state: permissive
+  selinux:
+    policy: targeted
+    state: permissive

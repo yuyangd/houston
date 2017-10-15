@@ -7,9 +7,17 @@
   roles:
     - { role: 'base' }
     - { role: 'ruby',
+        workspace: '/home/vagrant',
         ruby_version: 2.4.1,
         ruby_install_from_source: true,
         ruby_install_gems: ['sinatra', 'rack']
       }
     - { role: 'unicorn' }
     - { role: 'proxy' }
+    - { role: 'app' }
+  post_tasks:
+    - name: Run unicorn as daemon
+      command: '~/.gem/ruby/2.4.0/bin/unicorn -c /opt/unicorn.rb -D'
+      become_user: 'vagrant'
+      register: result
+    - debug: var=result

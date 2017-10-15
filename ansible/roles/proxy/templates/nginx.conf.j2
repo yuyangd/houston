@@ -49,7 +49,7 @@ http {
     # replace with your domain name
     server_name my-sinatra-app.com;
     # replace this with your static Sinatra app files, root + public
-    root {{ path_to_app }}/public;
+    root {{ root_dir }};
     # port to listen for requests on
     listen 80;
     # maximum accepted body size of client request

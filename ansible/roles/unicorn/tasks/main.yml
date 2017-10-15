@@ -2,17 +2,20 @@
   gem:
     name: unicorn
     state: latest
+  become: true
+  become_user: "{{ ansible_user }}"
 
 - name: Create dir for pids, socket, log
   file:
     path: "{{ item.path }}"
     state: directory
     mode: '0777'
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
   with_items:
-    - { path: /var/tmp }
-    - { path: /var/log }
-    - { path: "{{ path_to_app }}/tmp" }
-    - { path: "{{ path_to_app }}/tmp/pids" }
+    - { path: "{{ path_to_socket }}" }
+    - { path: "{{ path_to_log }}" }
+    - { path: "{{ app_path }}/pids" }
 
 - name: Use unicorn configuration
   template:
@@ -21,10 +24,3 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 'u=rwx,g=rwx,o=r'
-
-- name: Run unicorn as daemon
-  command: '/usr/local/bin/unicorn -c /opt/unicorn.rb -D'
-  become_user: "{{ ansible_user }}"
-  register: result
-
-- debug: var=result
