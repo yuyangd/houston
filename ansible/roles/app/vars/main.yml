@@ -1,0 +1,4 @@
+---
+sync_app_path: /vagrant/simple-sinatra-app
+app_path: /opt/sinatra
+ansible_user: vagrant

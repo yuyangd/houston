@@ -4,7 +4,7 @@ workspace: '/home/vagrant'
 
 ruby_install_bundler: true
 
-ruby_install_gems: ['sinatra', 'rack']
+ruby_install_gems: []
 
 ruby_install_gems_user: 'vagrant'
 

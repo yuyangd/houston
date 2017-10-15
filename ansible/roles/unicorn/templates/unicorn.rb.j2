@@ -1,0 +1,19 @@
+# set path to app that will be used to configure unicorn,
+# note the trailing slash in this example
+@dir = "{{ app_path }}"
+
+worker_processes 2
+working_directory @dir
+
+timeout 30
+
+# Specify path to socket unicorn listens to,
+# we will use this in our nginx.conf later
+listen "{{ path_to_socket }}/unicorn.sock", :backlog => 64
+
+# Set process id path
+pid "#{@dir}/pids/unicorn.pid"
+
+# Set log file paths
+stderr_path "{{ path_to_log }}/unicorn.stderr.log"
+stdout_path "{{ path_to_log }}/unicorn.stdout.log"

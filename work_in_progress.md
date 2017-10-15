@@ -29,7 +29,13 @@ Goal: Automate a base installation prior to get the app running
 
 # Iteration 3
 Goal: Manually run the app in a production like environment with nginx and unicorn
-
+boot up unicorn processes
+unicorn -c /opt/unicorn.rb -E development -D
+Selinux
+sudo vi /etc/sysconfig/selinux
+SELINUX=disabled
+setenforce 0
+getenforce
 
 
 # Iteration 4
@@ -58,5 +64,9 @@ Goal: use userdata to fetch the code
 Goal: Write README.md
 
 # Backlog
+Not to run ansible as root
 Support centos and ubuntu
 Template to support 2 tiers
+File permissions
+Shorten time for installing ruby
+SElinux policy to allow socket share
