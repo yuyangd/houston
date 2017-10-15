@@ -140,13 +140,7 @@ class ClfGenerator(object):
                             )
                         })
                     ),
-                    UserData=Base64(Join('', [
-                        "#!/bin/bash\n",
-                        "sudo apt-get update -y", "\n",
-                        "sudo apt-get install -y nginx", "\n",
-                        "sudo update-rc.d nginx defaults", "\n",
-                        "sudo service nginx start"
-                    ])),
+                    UserData=Base64(Join('', self.config['app_instance_user_data'])),
                     ImageId=FindInMap("RegionMap", Ref("AWS::Region"), "AMI"),
                     KeyName=self.config['sshkey'],
                     IamInstanceProfile=Ref(self.instance_iam_role_instance_profile),
@@ -212,7 +206,7 @@ class ClfGenerator(object):
                                 Effect=Allow,
                                 Action=[GetObject],
                                 Resource=[
-                                        "arn:aws:s3:::duy-logging/*",
+                                        "arn:aws:s3:::%s/*" % self.config['elb_logging_bucket'],
                                         "arn:aws:s3:::duy-site/*",
                                         "arn:aws:s3:::duy-automation/*"
                                         ]

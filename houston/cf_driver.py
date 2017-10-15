@@ -103,7 +103,7 @@ class CFDriver(object):
                                      template=self.t)
             self._logger.info("Template generated")
             template = generator.generated_template().to_json()
-            #self._save_template(template)
+            self._save_template(template)
             self._logger.info("Print out template: %s" % str(template))
             if len(template) > 0:
                 self._create_stack(str(template))
