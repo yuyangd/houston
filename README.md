@@ -21,9 +21,11 @@ Routing tables
 **Install this package**
 
 $ virtualenv venv
+
 $ source venv/bin/activate
 
 $ pip install -r requirements.txt
+
 $ pip install -e .
 
 **Run the stack**
