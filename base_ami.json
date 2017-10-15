@@ -42,7 +42,7 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "ansible/playbook-aws.yaml",
+      "playbook_file": "ansible/playbook-ami.yaml",
       "playbook_dir": "ansible",
       "command": "ansible-playbook -Dv",
       "role_paths": [

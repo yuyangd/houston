@@ -66,3 +66,4 @@ Template to support 2 tiers
 File permissions
 Shorten time for installing ruby
 SElinux policy to allow socket share
+Build artefact, ship to s3, so the provisioning can load the artefact from s3
