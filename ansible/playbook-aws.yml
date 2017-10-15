@@ -5,7 +5,9 @@
   become: true
   gather_facts: yes
   roles:
-    - { role: 'base' }
+    - { role: 'base',
+        selinux_disabled: True
+      }
     - { role: 'ruby',
         workspace: '/home/ec2-user',
         ruby_install_gems_user: 'ec2-user',

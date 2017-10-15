@@ -6,3 +6,4 @@
   selinux:
     policy: targeted
     state: permissive
+  when: selinux_disabled == False
