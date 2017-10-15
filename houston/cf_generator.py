@@ -146,7 +146,7 @@ class ClfGenerator(object):
                     IamInstanceProfile=Ref(self.instance_iam_role_instance_profile),
                     BlockDeviceMappings=[
                         ec2.BlockDeviceMapping(
-                            DeviceName="/dev/sda1",
+                            DeviceName=self.config['device_name'],
                             Ebs=ec2.EBSBlockDevice(
                                 VolumeSize="8"
                             )

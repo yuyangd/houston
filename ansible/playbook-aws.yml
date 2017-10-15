@@ -8,9 +8,15 @@
     - { role: 'base' }
     - { role: 'ruby',
         workspace: '/home/ec2-user',
+        ruby_install_gems_user: 'ec2-user',
         ruby_version: 2.4.1,
         ruby_install_from_source: true,
         ruby_install_gems: ['sinatra', 'rack']
       }
-    - { role: 'unicorn' }
-    - { role: 'proxy' }
+    - { role: 'unicorn',
+        ansible_user: 'ec2-user'
+      }
+    - { role: 'proxy',
+        path_to_app: '/home/ec2-user/houston/simple-sinatra-app',
+        nginx_bin: '/usr/sbin/nginx'
+      }

@@ -13,6 +13,7 @@ app_sg:
   - 'sg-6f6c570b'
   - 'sg-086c576c'
 app_instance_ami: 'ami-8536d6e7'
+device_name: '/dev/xvda'
 instance_type: 't2.micro'
 instance_port: 80
 app_instance_user_data:
