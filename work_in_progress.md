@@ -29,18 +29,14 @@ Goal: Automate a base installation prior to get the app running
 
 # Iteration 3
 Goal: Manually run the app in a production like environment with nginx and unicorn
-boot up unicorn processes
-unicorn -c /opt/unicorn.rb -E development -D
-Selinux
-sudo vi /etc/sysconfig/selinux
-SELINUX=disabled
-setenforce 0
-getenforce
+1. boot up unicorn processes
+2. unicorn -c /opt/unicorn.rb -E development -D
+3. disable selinux to allow nginx and unicorn share socket
 
 
 # Iteration 4
 Goal: Automate the production like environment provisioning
-
+1. Ansible roles for proxy (nginx), ruby, unicorn
 
 # Iteration 5
 Goal: Get a basic CloudFormation template to setup the environment
