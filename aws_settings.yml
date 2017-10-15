@@ -1,0 +1,24 @@
+---
+elb_port: 80
+elb_sg:
+  - 'sg-296c574d'
+elb_logging_bucket: 'duy-logging'
+app_sg:
+  - 'sg-6f6c570b'
+  - 'sg-086c576c'
+app_instance_ami: 'ami-8536d6e7'  
+instance_type: 't2.micro'
+instance_port: 80
+private_subnet:
+  - 'subnet-2746ee43'
+  - 'subnet-1c72a46a'
+public_subnet:
+  - 'subnet-2272a454'
+  - 'subnet-7146ee15'
+scale_desire: 1
+scale_max: 2
+scale_min: 1
+sshkey: 'duy-demo'
+app_name: 'sinatra'
+app_version: 'latest'
+env: 'dev'
