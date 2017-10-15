@@ -35,7 +35,7 @@ class ClfGenerator(object):
 
     def _add_ami(self, template):
         template.add_mapping("RegionMap", {
-            "ap-southeast-2": {"AMI": "ami-ba3e14d9"}
+            "ap-southeast-2": {"AMI": self.config['app_instance_ami']}
         })
 
     def _instance_iam_role(self):
@@ -70,7 +70,7 @@ class ClfGenerator(object):
                     AccessLoggingPolicy=elb.AccessLoggingPolicy(
                         EmitInterval=5,
                         Enabled=True,
-                        S3BucketName="duy-logging",
+                        S3BucketName=self.config['elb_logging_bucket'],
                         S3BucketPrefix="ELB",
                     ),
                     Subnets=self.config['public_subnet'],
