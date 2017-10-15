@@ -17,7 +17,3 @@ fi
 sudo cp /home/ec2-user/houston/ansible/hosts /etc/ansible/hosts
 
 /usr/local/bin/ansible-playbook /home/ec2-user/houston/ansible/playbook-aws.yml
-
-cp /home/ec2-user/houston/simple-sinatra-app/* /opt/sinatra
-
-/home/ec2-user/.gem/ruby/2.4.0/bin/unicorn -c /opt/unicorn.rb -D
