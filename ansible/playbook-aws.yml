@@ -22,3 +22,13 @@
         path_to_app: '/home/ec2-user/houston/simple-sinatra-app',
         nginx_bin: '/usr/sbin/nginx'
       }
+    - { role: 'app',
+        sync_app_path: '/home/ec2-user/houston/simple-sinatra-app',
+        ansible_user: 'ec2-user'
+      }
+  post_tasks:
+    - name: Run unicorn as daemon
+      command: '/home/ec2-user/.gem/ruby/2.4.0/bin/unicorn -c /opt/unicorn.rb -D'
+      become_user: 'ec2-user'
+      register: result
+    - debug: var=result
