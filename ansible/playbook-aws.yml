@@ -2,12 +2,9 @@
 - hosts: all
   connection: ssh
   user: ec2-user
-  become: true
   gather_facts: yes
   roles:
-    - { role: 'base',
-        selinux_disabled: True
-      }
+    - { role: 'aws' }
     - { role: 'ruby',
         workspace: '/home/ec2-user',
         ruby_install_gems_user: 'ec2-user',
@@ -30,5 +27,6 @@
     - name: Run unicorn as daemon
       command: '/home/ec2-user/.gem/ruby/2.4.0/bin/unicorn -c /opt/unicorn.rb -D'
       become_user: 'ec2-user'
+      become: true
       register: result
     - debug: var=result

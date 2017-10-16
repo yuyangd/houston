@@ -1,5 +1,14 @@
+- name: Ensure RPM official nginx key
+  rpm_key: key=http://nginx.org/keys/nginx_signing.key
+  environment: "{{ nginx_env }}"
+  when: ansible_os_family == 'RedHat'
+
+- name: Ensure YUM official nginx repository
+  template: src=nginx.repo.j2 dest=/etc/yum.repos.d/nginx.repo
+  when: ansible_os_family == 'RedHat'
+
 - name: Install Nginx server
-  yum: pkg=nginx state=latest
+  yum: pkg=nginx state=present enablerepo='nginx'
   when: "ansible_os_family == 'RedHat'"
 
 - name: Create root dir
@@ -10,6 +19,8 @@
     owner: "{{ nginx_user }}"
     group: "{{ nginx_user }}"
 
+- name: Start the nginx service
+  service: name=nginx state=started enabled=yes
 
 - name: Use Nginx configuration for Reverse proxy
   template:
@@ -19,5 +30,5 @@
     group: 'root'
     mode: 'u=rw,g=r,o=r'
   notify:
-    - validate config 
+    - validate config
     - restart nginx

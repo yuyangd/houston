@@ -1,0 +1,25 @@
+- name: upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+    exclude: kernel*
+
+- name: remove unwanted packages
+  yum:
+    name: sendmail
+    state: absent
+
+# - name: Install the selinux python module
+#   package: name={{ item }} state=present
+#   with_items:
+#     - libselinux-python
+#     - libsemanage-python
+#   when: ansible_os_family == "RedHat"
+
+# - name: Set SELinux boolean to allow nginx to set rlimit
+#   seboolean: name=httpd_setrlimit state=yes persistent=yes
+
+# - name: Put SELinux in permissive mode
+#   selinux:
+#     policy: targeted
+#     state: permissive

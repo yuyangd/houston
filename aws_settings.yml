@@ -3,6 +3,8 @@ elb_port: 80
 elb_sg:
   - 'sg-296c574d'
 elb_logging_bucket: 'duy-logging'
+app_bucket: 'duy-site'
+config_bucket: 'duy-automation'
 private_subnet:
   - 'subnet-2746ee43'
   - 'subnet-1c72a46a'
@@ -18,8 +20,11 @@ instance_type: 't2.micro'
 instance_port: 80
 app_instance_user_data:
   - "#!/bin/bash\n"
-  - "sudo yum install -y git\n"
-  - "git clone https://github.com/duy156/houston.git /home/ec2-user/houston\n"
+  - "aws s3 cp s3://duy-site/simple-sinatra-app/simple-sinatra-app-0.0.1.tar.gz /tmp/\n"
+  - "aws s3 cp s3://duy-automation/simple-sinatra-app/config-0.0.1.tar.gz /tmp/\n"
+  - "mkdir /home/ec2-user/houston\n"
+  - "tar xzvf /tmp/simple-sinatra-app-0.0.1.tar.gz -C /home/ec2-user/houston/\n"
+  - "tar xzvf /tmp/config-0.0.1.tar.gz -C /home/ec2-user/houston/\n"
   - "/home/ec2-user/houston/scripts/bootstrap.sh"
 scale_desire: 1
 scale_max: 2

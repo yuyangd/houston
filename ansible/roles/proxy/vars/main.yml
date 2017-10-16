@@ -4,3 +4,6 @@ path_to_socket: "/var/temp"
 root_dir: "/var/www"
 nginx_user: "nginx"
 nginx_bin: '/sbin/nginx'
+
+nginx_env:
+  RUNLEVEL: 3

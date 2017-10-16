@@ -5,7 +5,7 @@
   become: true
   gather_facts: yes
   roles:
-    - { role: 'base' }
+    - { role: 'local' }
     - { role: 'ruby',
         workspace: '/home/vagrant',
         ruby_version: 2.4.1,
