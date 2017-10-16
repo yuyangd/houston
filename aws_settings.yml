@@ -3,6 +3,8 @@ elb_port: 80
 elb_sg:
   - 'sg-296c574d'
 elb_logging_bucket: 'duy-logging'
+app_bucket: 'duy-site'
+config_bucket: 'duy-automation'
 private_subnet:
   - 'subnet-2746ee43'
   - 'subnet-1c72a46a'
