@@ -1,5 +1,7 @@
 # Deploy a sinatra app
 
+Target to develop the solution in a local environment, before moving the solution to AWS, so that we can get immediate feedback on testing.
+
 ### Setup local environment
 
 Use vagrant and virtualbox to provision the local environment, so we can have a working environment setup quickly.    
