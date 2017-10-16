@@ -57,7 +57,7 @@ Goal: use userdata to fetch the code
       deploy the app
 
 # Iteration 9
-Goal: Write README.md
+Goal: Security uplift and documentation
 
 # Backlog
 Not to run ansible as root
