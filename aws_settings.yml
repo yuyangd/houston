@@ -22,6 +22,8 @@ app_instance_user_data:
   - "#!/bin/bash\n"
   - "sudo yum install -y git\n"
   - "git clone https://github.com/duy156/houston.git /home/ec2-user/houston\n"
+  - "aws s3 cp s3://duy-site/simple-sinatra-app/simple-sinatra-app-0.0.1.tar.gz /home/ec2-user/\n"
+  - "aws s3 cp s3://duy-automation/simple-sinatra-app/config-0.0.1.tar.gz /home/ec2-user/\n"
   - "/home/ec2-user/houston/scripts/bootstrap.sh"
 scale_desire: 1
 scale_max: 2

@@ -73,3 +73,5 @@ Goal: further secure the app
 Support centos and ubuntu
 Template to support 2 tiers
 Shorten time for installing ruby
+Log rotate, centralised logging
+S3 Yum repo setup
