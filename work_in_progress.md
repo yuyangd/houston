@@ -58,12 +58,18 @@ Goal: use userdata to fetch the code
 
 # Iteration 9
 Goal: Security uplift and documentation
+1. Update the system with latest security patches
+2. Use nginx official repo instead of epel-release
+3. Load artefact from s3 rather than github
+4. Remove unneeded package and services
 
-# Backlog
-Not to run ansible as root
+# Iteration 10
+Goal: further secure the app
+1. Run ansible as non-root, file permissions
+2. SElinux policy to allow socket share
+3. Enable firewalld to filter packets
+
+# Backlog  
 Support centos and ubuntu
 Template to support 2 tiers
-File permissions
 Shorten time for installing ruby
-SElinux policy to allow socket share
-Build artefact, ship to s3, so the provisioning can load the artefact from s3
