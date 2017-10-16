@@ -215,9 +215,9 @@ class ClfGenerator(object):
                                 Effect=Allow,
                                 Action=[ListBucket],
                                 Resource=[
-                                        "arn:aws:s3:::duy-logging",
-                                        "arn:aws:s3:::duy-site",
-                                        "arn:aws:s3:::duy-automation"
+                                        "arn:aws:s3:::%s" % self.config['elb_logging_bucket'],
+                                        "arn:aws:s3:::%s" % self.config['app_bucket'],
+                                        "arn:aws:s3:::%s" % self.config['config_bucket']
                                         ]
                             )
                         ]
