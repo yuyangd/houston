@@ -90,6 +90,59 @@ For private subnets:
 Edit `aws_settings.yml` with above settings
 
 
+**S3 bucket policy**  
+
+ELB logging bucket:
+
+```
+{
+    "Sid": "ElbAccountAccess",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:iam::783225319266:root"
+    },
+    "Action": "s3:*",
+    "Resource": [
+        "arn:aws:s3:::<elb-logging>/*",
+        "arn:aws:s3:::<elb-logging>"
+    ]
+}
+```
+
+Application artefact bucket:
+
+```
+{
+    "Sid": "AccountAccess",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "<account id>"
+    },
+    "Action": "s3:*",
+    "Resource": [
+        "arn:aws:s3:::<app-bucket>/*",
+        "arn:aws:s3:::<app-bucket>"
+    ]
+}
+```
+
+Configuration artefact bucket:
+
+```
+{
+    "Sid": "AccountAccess",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "account id"
+    },
+    "Action": "s3:*",
+    "Resource": [
+        "arn:aws:s3:::<app-bucket>/*",
+        "arn:aws:s3:::<app-bucket>"
+    ]
+}
+```
+
 **Install this package**
 
 $ virtualenv venv
