@@ -34,3 +34,4 @@ py.junit.unittests.xml
 py.junit.unittests_bin.xml
 *.rspec
 *.zip
+*.tar.gz
