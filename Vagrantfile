@@ -50,5 +50,7 @@ Vagrant.configure("2") do |vagrant_config|
     vagrant_config.vbguest.no_remote = true
   end
 
+  vagrant_config.vm.synced_folder "ansible", "/repo/ansible"
+  vagrant_config.vm.synced_folder "tests", "/repo/tests"
 
 end
