@@ -46,7 +46,7 @@ Vagrant will run with playbook-vagrant.yml with below roles:
 **Run system tests**
 
 ```
-$ cd /repo/system
+$ cd /repo/tests/system
 $ bundle install
 $ rake spec
 
