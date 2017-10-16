@@ -45,7 +45,7 @@ Vagrant will run with playbook-vagrant.yml with below roles:
 
 The assumption is, you already have an AWS VPC setup in your AWS account, and you should have following architecture in your VPC
 
-![](https://lh6.googleusercontent.com/IM7fmYaBFn_vGdTNak4CNCw-xjAi7uqd-OApRSQ0eqrJjS-7K-wrvsgOnG2GIaCfODHDY1hPycci4OQ=w960-h960)
+![AWS](https://lh6.googleusercontent.com/IM7fmYaBFn_vGdTNak4CNCw-xjAi7uqd-OApRSQ0eqrJjS-7K-wrvsgOnG2GIaCfODHDY1hPycci4OQ=w960-h960)
 
 Can use AWS Net Gateway instead of a Net Instance
 
