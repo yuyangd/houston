@@ -172,6 +172,20 @@ The command will generate the CloudFormation template from the config you suppli
 The template will be stored locally at /tmp/my_template.json  
 Note, this template will be overrided each time you run the command
 
+**Ansible playbook and roles**
+
+Userdata will run with playbook-aws.yml with below roles:  
+- aws
+  Install the basic dependencies
+- ruby
+  Install ruby package
+- unicorn
+  Install and config unicorn
+- proxy
+  Install and config nginx to work as a reverse proxy
+- app
+  Copy the app files to the target location
+
 
 ### Build AWS AMI to install the basics prior to app deploy
 
@@ -192,3 +206,4 @@ Securiy part has implemented on AWS environment only, because the local environm
 - Remove unneeded services
 - Update the system with latest security patches
 - Enable selinux
+- Enable firewalld
