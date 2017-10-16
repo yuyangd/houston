@@ -108,17 +108,27 @@ $ python -m unittest tests.test_cf_generator
 
 **Run the stack**
 
-Require aws credetials setup locally
+Require aws credetials setup locally  
+Require the user having permissions on CloudFormation, EC2, Security Groups and etc.
 
+```
 $ stack -i aws_settings.yml
+```
+
+The command will generate the CloudFormation template from the config you supplied, and launch the stack with that template.  
+The template will be stored locally at /tmp/my_template.json  
+Note, this template will be overrided each time you run the command
 
 
 ### Build AWS AMI to install the basics prior to app deploy
 
 Require packer installed
 
-scripts/build_ami.sh
+```
+scripts/build_ami.sh <>
+```
 
+This command will launch an ec2 instance from the base AMI you specified, and run Ansible on that instance, once the provision finished, it will create an AMI from that instance. There will be a snapshot of the instance generated.
 
 ### Security uplift
 
