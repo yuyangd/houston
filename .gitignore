@@ -32,4 +32,5 @@ env3
 
 py.junit.unittests.xml
 py.junit.unittests_bin.xml
-.rspec
+*.rspec
+*.zip
