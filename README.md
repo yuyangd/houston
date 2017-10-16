@@ -172,6 +172,11 @@ The command will generate the CloudFormation template from the config you suppli
 The template will be stored locally at /tmp/my_template.json  
 Note, this template will be overrided each time you run the command
 
+Reason for choosing Troposphere to generate CloudFormation template?
+
+I'm familiar with Cloudformation template, and Troposphere enable me to inject config variables into the template via python.
+Also, I can unit test the cloudformation template in json pieces, prior to launching the stack.
+
 **Ansible playbook and roles**
 
 Userdata will run with playbook-aws.yml with below roles:  
