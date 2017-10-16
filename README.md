@@ -19,6 +19,11 @@ To get the vagrant box up and running, go to the root directory of this reposito
 ```
 $ vagrant up
 ```
+**Troubleshooting**
+
+For mount shared folder error:  
+`vagrant plugin install vagrant-vbguest`
+
 
 **Ansible playbook and roles**
 
@@ -38,6 +43,20 @@ Vagrant will run with playbook-vagrant.yml with below roles:
 - app
   Copy the app files to the target location
 
+**Run system tests**
+
+```
+$ cd /repo/system
+$ bundle install
+$ rake spec
+
+```
+
+**Test app**
+
+```
+curl 127.0.0.1
+```
 
 ### Setup AWS environment
 
@@ -99,3 +118,14 @@ $ stack -i aws_settings.yml
 Require packer installed
 
 scripts/build_ami.sh
+
+
+### Security uplift
+
+Securiy part has implemented on AWS environment only, because the local environment require faster boot and feedback
+
+- Use nginx official YUM repo instead of epel-release
+- Remove unnecessary software packages
+- Remove unneeded services
+- Update the system with latest security patches
+- Enable selinux
