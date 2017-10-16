@@ -32,15 +32,15 @@ Ansible is quick to setup and running in local and AWS environment
 Ansible roles can be reused in both environment
 
 Vagrant will run with playbook-vagrant.yml with below roles:  
-- local
+- local:  
   Install the basic dependencies
-- ruby
+- ruby:  
   Install ruby package
-- unicorn
+- unicorn:  
   Install and config unicorn
-- proxy
+- proxy:  
   Install and config nginx to work as a reverse proxy
-- app
+- app:  
   Copy the app files to the target location
 
 **Run system tests**
@@ -180,15 +180,15 @@ Also, I can unit test the cloudformation template in json pieces, prior to launc
 **Ansible playbook and roles**
 
 Userdata will run with playbook-aws.yml with below roles:  
-- aws
+- aws:  
   Install the basic dependencies
-- ruby
+- ruby:  
   Install ruby package
-- unicorn
+- unicorn:  
   Install and config unicorn
-- proxy
+- proxy:  
   Install and config nginx to work as a reverse proxy
-- app
+- app:  
   Copy the app files to the target location
 
 
