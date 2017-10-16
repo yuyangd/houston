@@ -85,9 +85,9 @@ Route table:
   10.0.0.0/16 local  
   0.0.0.0/0   igw-x  
 
-For private subnets:  
-10.0.0.0/16 local  
-0.0.0.0/0   nat-x  
+- For private subnets:  
+  10.0.0.0/16 local  
+  0.0.0.0/0   nat-x  
 
 Edit `aws_settings.yml` with above settings
 
@@ -147,6 +147,7 @@ Configuration artefact bucket:
 
 **Install this package**
 
+```
 $ virtualenv venv
 
 $ source venv/bin/activate
@@ -154,12 +155,13 @@ $ source venv/bin/activate
 $ pip install -r requirements.txt
 
 $ pip install -e .
-
+```
 
 **Run unittest**
 
+```
 $ python -m unittest tests.test_cf_generator
-
+```
 
 **Run the stack**
 
