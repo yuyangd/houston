@@ -206,4 +206,3 @@ Securiy part has implemented on AWS environment only, because the local environm
 - Remove unneeded services
 - Update the system with latest security patches
 - Enable selinux
-- Enable firewalld

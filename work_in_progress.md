@@ -67,7 +67,6 @@ Goal: Security uplift and documentation
 Goal: further secure the app
 1. Run ansible as non-root, file permissions
 2. SElinux policy to allow socket share
-3. Enable firewalld to filter packets
 
 # Backlog  
 Support centos and ubuntu
@@ -75,3 +74,4 @@ Template to support 2 tiers
 Shorten time for installing ruby
 Log rotate, centralised logging
 S3 Yum repo setup
+Enable iptables as internal firewall
