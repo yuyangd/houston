@@ -5,7 +5,7 @@
   become: true
   gather_facts: yes
   roles:
-    - { role: 'base',
+    - { role: 'aws',
         selinux_disabled: True
       }
     - { role: 'ruby',
