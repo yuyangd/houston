@@ -211,3 +211,44 @@ Securiy part has implemented on AWS environment only, because the local environm
 - Remove unneeded services
 - Update the system with latest security patches
 - Enable selinux
+
+**SELinux to function on Amazon AMI Linux**
+
+`yum -y install policycoreutils selinux-policy-targeted`
+
+Edit `/etc/grub.conf`
+
+```
+title Amazon Linux 2017.09 (4.9.51-10.52.amzn1.x86_64)
+root (hd0,0)
+kernel /boot/vmlinuz-4.9.51-10.52.amzn1.x86_64 root=LABEL=/ console=tty1 console=ttyS0 selinux=1 security=selinux enforcing=1
+initrd /boot/initramfs-4.9.51-10.52.amzn1.x86_64.img
+```
+
+Rebuild the initrd image so that selinux settings can take effect.
+
+```
+yum -y update
+touch /.autorelabel
+/sbin/new-kernel-pkg --package kernel --mkinitrd --make-default --dracut --depmod --install 4.9.51-10.52.amzn1.x86_64 || exit $?
+
+rpm -q --scripts kernel
+```
+
+
+Edit `/etc/selinux/config`
+
+```
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=enforcing
+# SELINUXTYPE= can take one of these two values:
+#     targeted - Targeted processes are protected,
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
+
+Require reboot at the end.

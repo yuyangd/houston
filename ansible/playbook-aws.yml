@@ -4,9 +4,7 @@
   user: ec2-user
   gather_facts: yes
   roles:
-    - { role: 'aws',
-        selinux_disabled: True
-      }
+    - { role: 'aws' }
     - { role: 'ruby',
         workspace: '/home/ec2-user',
         ruby_install_gems_user: 'ec2-user',
