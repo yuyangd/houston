@@ -19,7 +19,7 @@ ipaddress==1.0.22
 jmespath==0.9.3
 MarkupSafe==1.1.0
 mock==2.0.0
-paramiko==2.4.2
+paramiko==2.10.1
 pbr==5.1.2
 pyasn1==0.4.5
 pycparser==2.19
